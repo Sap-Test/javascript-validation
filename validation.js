@@ -21,13 +21,13 @@ $(document).ready(function () {
         {
             firstName:
                 {
-                    required: "Please Enter your First Name"
+                    required: "Please Enter your Name"
                 },
             grade:
                 {
                     required: "Please enter the grade between 5-8",
-                    min: "Please enter more than 4",
-                    max: "Please enter less than 9",
+                    min: "Please enter the grade between 5-8",
+                    max: "Please enter the grade between 5-8",
                     digits: "Please enter number only"
                 }
 
@@ -37,24 +37,31 @@ $(document).ready(function () {
     // Needs submitHandler, rules, and messages properties
     $("form").validate(
         {
-
             submitHandler: runMyProgram,
             rules: myRules,
-            message: myMessages
+            messages: myMessages
         }
     );
 
-    function runMyProgram(event) {
+
+    function runMyProgram() {
         // Change the text of the <p> with ID of "message" to
         // state, for example, "You have registered Jane for grade 6 camp!"
         // Use the name and grade the user provided in the form.
-        event.preventDefault();
-        let firstName = $("input#firstName").val();
 
-        let grade = parseInt($("input#grade").val());
+        let name = $("input#firstName").val();
 
-        $("p#message").text(`You have registered ${firstName} for grade ${grade} camp.`)
+        let campGrade = parseInt($("input#grade").val());
+
+        $("p#message").text(`You have registered ${name} for grade ${campGrade} camp.`)
 
     }
 
 });
+
+
+
+
+
+
+
